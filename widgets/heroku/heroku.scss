@@ -1,7 +1,7 @@
 // ----------------------------------------------------------------------------
 // Sass declarations
 // ----------------------------------------------------------------------------
-$background-color:  #896FBA;
+$background-color:  #896fba;
 $value-color:       #fff;
 
 $title-color:       rgba(255, 255, 255, 0.7);;
@@ -13,9 +13,10 @@ $moreinfo-color:    rgba(255, 255, 255, 0.7);;
 .widget-heroku { 
 
   background-image: url('/assets/traffic_light_green.png');
+  background-color: $background-color;
   background-repeat: no-repeat;
   background-position: center center;
-  
+}  
   .heroku-info {
     margin-top: -170px;
   }
