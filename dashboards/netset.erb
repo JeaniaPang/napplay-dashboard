@@ -1,6 +1,8 @@
 <script type='text/javascript'>
 $(function() {
 Dashing.gridsterLayout('[{"col":2,"row":1,"size_x":2,"size_y":1},{"col":4,"row":1,"size_x":1,"size_y":1},{"col":1,"row":2,"size_x":1,"size_y":1},{"col":1,"row":1,"size_x":1,"size_y":1},{"col":2,"row":2,"size_x":2,"size_y":1},{"col":4,"row":2,"size_x":1,"size_y":1}]')
+Dashing.widget_base_dimensions = [370, 370]
+  Dashing.numColumns = 4
 });
 </script>
 <% content_for :title do %>NapPlay Dashboard<% end %>
@@ -31,5 +33,8 @@ Dashing.gridsterLayout('[{"col":2,"row":1,"size_x":2,"size_y":1},{"col":4,"row":
       <div data-id="app_store_rating" data-view="Appstore" data-title="The Net Set"></div>
     </li>
   </ul>
+
+
+ 
  <!-- <center><div style="font-size: 12px">Try this: curl -d '{ "auth_token": "YOUR_AUTH_TOKEN", "text": "Hey, Look what I can do!" }' \http://<%=request.host%>:<%=request.port%>/widgets/welcome</div></center> -->
 </div>
