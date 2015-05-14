@@ -9,16 +9,16 @@ twitter = Twitter::REST::Client.new do |config|
   config.access_token_secret = 'h5NrVHTK3n9wZRoeyppuJPtaB1ejc3Kg7keTol1b30oW6'
 end
 
+search_term = URI::encode('#TheNETSET')
+ 
 SCHEDULER.every '20s', :first_in => 0 do |job|
-  begin
-    timeline = twitter.mentions_timeline
-    if timeline
-      mentions = timeline.map do |tweet|
-        { name: tweet.user.name, body: tweet.text, avatar: tweet.user.profile_image_url_https }
-      end
-      send_event('twitter_mentions', {comments: mentions})
+  tweets = twitter.search("#{search_term}")
+  if tweets
+    tweetsArray = []
+    tweets.each do |tweet|
+      tweetObj = { name: tweet.user.name, body: tweet.text, avatar: tweet.user.profile_image_url_https.to_s }
+      tweetsArray.push(tweetObj)
     end
-  rescue Twitter::Error
-    puts "\e[33mThere was an error with Twitter\e[0m"
+    send_event('twitter_mentions', comments: tweetsArray)
   end
 end
